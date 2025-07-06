@@ -4,11 +4,12 @@ import * as React from "react";
 import Link from "next/link";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
-import { cn } from '../../src/lib/utils';
 import { cva } from "class-variance-authority";
 
-
-
+// Utility function to combine class names - replaces the problematic import
+function cn(...inputs: any[]) {
+  return inputs.filter(Boolean).join(' ');
+}
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -126,21 +127,6 @@ export function Navbar() {
           <span>💬</span>
           <span>Quote Gen</span>
         </div>
-        
-        <NavigationMenu>
-          <NavigationMenuList className="flex gap-4 items-center">
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="/"
-                  className="px-4 py-2 rounded-md border hover:bg-white hover:text-blue-600 transition"
-                >
-                  Home
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
       </div>
     </nav>
   );
