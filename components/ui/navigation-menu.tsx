@@ -5,8 +5,8 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { ChevronDownIcon } from "lucide-react";
 import { cva } from "class-variance-authority";
 
-// Utility function to combine class names - replaces the problematic import
-function cn(...inputs: any[]) {
+// ✅ PROPERLY TYPED UTILITY FUNCTION
+function cn(...inputs: (string | undefined | false | null)[]) {
   return inputs.filter(Boolean).join(' ');
 }
 
